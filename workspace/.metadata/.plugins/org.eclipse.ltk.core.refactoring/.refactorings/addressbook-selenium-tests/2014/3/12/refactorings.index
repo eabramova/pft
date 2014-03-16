@@ -1,0 +1,4 @@
+1394960147242	Rename local variable 'parameterObject'
+1394960795276	Pull up 'returnMainPageFromAddNewContactPage()' to 'TestBase'
+1394960804820	Pull up 'submitAddNewContact()' to 'TestBase'
+1394960824139	Pull up members to 'TestBase'

@@ -538,3 +538,198 @@ Command-line arguments:  -data C:\GitHub\pft\workspace -os win32 -ws win32 -arch
   Class:     org.testng.remote.RemoteTestNG
   Args:      -serport 64328 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--1997219827\testng-customsuite.xml
 java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 64328 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--1997219827\testng-customsuite.xml
+!SESSION 2014-03-16 12:34:08.780 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data C:\GitHub\pft\workspace -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 12:41:42.203
+!MESSAGE [TestNGLaunchShortcut] Examining Java element:[Working copy] AddContactTests.java [in com.example.tests [in src [in addressbook-selenium-tests]]]
+  package com.example.tests
+  import java.util.regex.Pattern
+  import java.util.concurrent.TimeUnit
+  import org.junit.Assert.*
+  import org.hamcrest.CoreMatchers.*
+  import org.openqa.selenium.*
+  import org.openqa.selenium.firefox.FirefoxDriver
+  import org.openqa.selenium.support.ui.Select
+  import org.testng.annotations.AfterClass
+  import org.testng.annotations.BeforeClass
+  import org.testng.annotations.Test
+  class AddContactTests
+    WebDriver driver
+    String baseUrl
+    boolean acceptNextAlert
+    StringBuffer verificationErrors
+    void setUp()
+    void testNonEmptyContactCreation()
+    void testEmptyContactCreation()
+    void returnMainPageFromAddNewContactPage()
+    void submitAddNewContact()
+    void fillNewContactPage(ContactData)
+    void selectGroup(ContactGroupData)
+    void bDateSelect(BirthDateData)
+    void initAddNewContact()
+    void openMainPage()
+    void tearDown()
+    boolean isElementPresent(By)
+    boolean isAlertPresent()
+    String closeAlertAndGetItsText()
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 12:41:42.509
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 62412 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-1786655316\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 62412 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-1786655316\testng-customsuite.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2014-03-16 12:47:02.786
+!MESSAGE Failed to open search index.
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 12:57:55.793
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 62923 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-1495960291\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 62923 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-1495960291\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:02:15.010
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 63139 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--1917376541\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 63139 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--1917376541\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:09:28.574
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 63252 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--359851696\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 63252 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--359851696\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:14:33.390
+!MESSAGE [TestNGLaunchShortcut] Examining Java element:com.example.tests [in src [in addressbook-selenium-tests]]
+  [Working copy] AddContactTests.java
+    package com.example.tests
+    import org.testng.annotations.Test
+    class AddContactTests
+      void testNonEmptyContactCreation()
+      void testEmptyContactCreation()
+  [Working copy] GroupCreationTests.java
+    package com.example.tests
+    import org.testng.annotations.Test
+    class GroupCreationTests
+      void testNonEmptyGroupCreation()
+      void testEmptyGroupCreation()
+  GroupData.java
+    package com.example.tests
+    class GroupData
+      String name
+      String header
+      String footer
+      GroupData()
+      GroupData(String, String, String)
+  AlsoGroupCreationTests.java
+    package com.example.tests
+    import org.testng.annotations.Test
+    class AlsoGroupCreationTests
+      void testNonEmptyGroupCreation()
+      void testEmptyGroupCreation()
+  [Working copy] TestBase.java
+    package com.example.tests
+    import org.junit.Assert.fail
+    import java.util.concurrent.TimeUnit
+    import org.openqa.selenium.Alert
+    import org.openqa.selenium.By
+    import org.openqa.selenium.NoAlertPresentException
+    import org.openqa.selenium.NoSuchElementException
+    import org.openqa.selenium.WebDriver
+    import org.openqa.selenium.firefox.FirefoxDriver
+    import org.openqa.selenium.support.ui.Select
+    import org.testng.annotations.AfterTest
+    import org.testng.annotations.BeforeTest
+    class TestBase
+      WebDriver driver
+      String baseUrl
+      boolean acceptNextAlert
+      StringBuffer verificationErrors
+      void setUp()
+      void tearDown()
+      void returnToGroupsPage()
+      void submitGroupCreation()
+      void fillGroupForm(GroupData)
+      void initGroupCreation()
+      void gotoGroupsPage()
+      void openMainPage()
+      void returnMainPageFromAddNewContactPage()
+      void submitAddNewContact()
+      void fillNewContactPage(ContactData)
+      void selectGroup(ContactGroupData)
+      void bDateSelect(BirthDateData)
+      void initAddNewContact()
+      boolean isElementPresent(By)
+      boolean isAlertPresent()
+      String closeAlertAndGetItsText()
+  [Working copy] BirthDateData.java
+    package com.example.tests
+    class BirthDateData
+      String selectedbday
+      String selectedbmonth
+      String byear
+      BirthDateData()
+      BirthDateData(String, String, String)
+  [Working copy] ContactData.java
+    package com.example.tests
+    class ContactData
+      String firstname
+      String lastname
+      String address
+      String homephone
+      String mobilephone
+      String workphone
+      String email
+      String email2
+      String address2
+      String phone2
+      String selectedgroup
+      String selectedbday
+      String selectedbmonth
+      ContactData()
+      ContactData(String, String, String, String, String, String, String, String, String, String)
+  [Working copy] ContactGroupData.java
+    package com.example.tests
+    class ContactGroupData
+      String selectedgroup
+      ContactGroupData()
+      ContactGroupData(String)
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:14:33.450
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 63527 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--329812278\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 63527 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--329812278\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:17:46.778
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 63826 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-860675795\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 63826 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse-860675795\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2014-03-16 13:18:12.715
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar C:\GitHub\pft\workspace\addressbook-selenium-tests\bin C:\pft\libraries\selenium-server-standalone-2.39.0.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 63983 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--269100218\testng-customsuite.xml
+java -ea -classpath /C:/pft/software/eclipse/plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar:C:\GitHub\pft\workspace\addressbook-selenium-tests\bin:C:\pft\libraries\selenium-server-standalone-2.39.0.jar org.testng.remote.RemoteTestNG -serport 63983 -d C:\GitHub\pft\workspace\addressbook-selenium-tests\test-output C:\Users\Lena\AppData\Local\Temp\testng-eclipse--269100218\testng-customsuite.xml
