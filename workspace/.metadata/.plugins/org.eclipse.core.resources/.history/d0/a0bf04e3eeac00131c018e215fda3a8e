@@ -13,7 +13,7 @@ public class AddContactTests extends TestBase {
     contact.firstname = "John";
     contact.lastname = "Doe";
     contact.address = "3590 Marquette St, 95051 Santa Clara, Ca";
-    contact.homephone = "+1-650-34-5679";
+    contact.homephone = "+1-650-34-5678";
     contact.mobilephone = "+1-980-45-5678";
     contact.workphone = "+1-340-58-2345";
     contact.email = "john.doe.@gmail.com";
