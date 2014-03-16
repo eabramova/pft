@@ -1,0 +1,2 @@
+2014-03-02 21:07:45,781 [Worker-1] INFO  o.a.c.httpclient.HttpMethodDirector - I/O exception (org.apache.commons.httpclient.NoHttpResponseException) caught when processing request: The server download.eclipse.org failed to respond
+2014-03-02 21:07:45,791 [Worker-1] INFO  o.a.c.httpclient.HttpMethodDirector - Retrying request
