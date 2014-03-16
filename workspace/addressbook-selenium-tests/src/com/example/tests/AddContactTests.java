@@ -6,8 +6,8 @@ public class AddContactTests extends TestBase {
   
   @Test
   public void testNonEmptyContactCreation() throws Exception {
-	openMainPage();
-    initAddNewContact();
+	app.getNavigationHelper().openMainPage();
+    app.getContactHelper().initAddNewContact();
     
     ContactData contact = new ContactData();	
     contact.firstname = "John";
@@ -20,30 +20,30 @@ public class AddContactTests extends TestBase {
     contact.email2 = "john.doe2@gmail.com";
     contact.address2 = "3591 Market St, 98567 San Francisco, Ca";
     contact.phone2 = "+1-234-34-4567";
-    fillNewContactPage(contact);
+    app.getContactHelper().fillNewContactPage(contact);
 	
 	ContactGroupData group = new ContactGroupData();
 	group.selectedgroup = "group name 1";
-	selectGroup(group);
+	app.getContactHelper().selectGroup(group);
 	
 	BirthDateData bdata = new BirthDateData();
 	bdata.selectedbday = "20";
 	bdata.selectedbmonth = "March";
 	bdata.byear = "1981";
-	bDateSelect(bdata);
+	app.getContactHelper().bDateSelect(bdata);
 	
-    submitAddNewContact();
-    returnMainPageFromAddNewContactPage();
+    app.getContactHelper().submitAddNewContact();
+    app.getContactHelper().returnMainPageFromAddNewContactPage();
   }
   
   @Test
   public void testEmptyContactCreation() throws Exception {
-	openMainPage();
-    initAddNewContact();
+	app.getNavigationHelper().openMainPage();
+    app.getContactHelper().initAddNewContact();
     ContactData contact = new ContactData("", "", "", "", "", "", "", "", "", "");    
-	fillNewContactPage(contact);
-    submitAddNewContact();
-    returnMainPageFromAddNewContactPage();
+	app.getContactHelper().fillNewContactPage(contact);
+    app.getContactHelper().submitAddNewContact();
+    app.getContactHelper().returnMainPageFromAddNewContactPage();
   } 
 
 }

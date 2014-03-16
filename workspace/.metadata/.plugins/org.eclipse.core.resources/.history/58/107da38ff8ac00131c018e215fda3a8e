@@ -1,0 +1,17 @@
+package com.example.fw;
+
+import org.openqa.selenium.By;
+
+public class ContactHelper {
+
+	/*****************************************************
+	 * 
+	 * AddContactTests initial methods
+	 * 
+	 ****************************************************/
+	
+	public void returnMainPageFromAddNewContactPage() {		
+	    ApplicationManager.driver.findElement(By.linkText("home page")).click();
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.example.fw;
+
+public class HelperBase {
+	
+	protected ApplicationManager manager;
+
+}
