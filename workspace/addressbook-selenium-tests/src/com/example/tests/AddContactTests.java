@@ -33,7 +33,7 @@ public class AddContactTests extends TestBase {
 	app.getContactHelper().bDateSelect(bdata);
 	
     app.getContactHelper().submitAddNewContact();
-    app.getContactHelper().returnMainPageFromAddNewContactPage();
+    app.getContactHelper().returnToMainPageFromAddEditContactPage();
   }
   
   @Test
@@ -43,7 +43,7 @@ public class AddContactTests extends TestBase {
     ContactData contact = new ContactData("", "", "", "", "", "", "", "", "", "");    
 	app.getContactHelper().fillNewContactPage(contact);
     app.getContactHelper().submitAddNewContact();
-    app.getContactHelper().returnMainPageFromAddNewContactPage();
+    app.getContactHelper().returnToMainPageFromAddEditContactPage();
   } 
 
 }

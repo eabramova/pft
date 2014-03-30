@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 
 public class GroupModificationTests extends TestBase{
 	
-	GroupData group;
-
 	@Test
 	public void modifySomeGroup() {		
 		app.getNavigationHelper().openMainPage();

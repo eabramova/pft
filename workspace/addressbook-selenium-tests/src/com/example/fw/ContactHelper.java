@@ -8,19 +8,16 @@ import com.example.tests.ContactGroupData;
 public class ContactHelper extends HelperBase{
 
 	public ContactHelper(ApplicationManager manager) {
-		super(manager);
-		
+		super(manager);		
 	}
 
-	/*****************************************************
-	 * 
-	 * AddContactTests initial methods
-	 * 
-	 ****************************************************/
-	
-	public void returnMainPageFromAddNewContactPage() {		
+	public void returnToMainPageFromAddEditContactPage() {		
 		click(By.linkText("home page"));
 	}
+	
+	/*****************************************************
+	 * fill methods
+	 ****************************************************/
 
 	public void fillNewContactPage(ContactData contact) {
 		type(By.name("firstname"), contact.firstname);
@@ -34,6 +31,10 @@ public class ContactHelper extends HelperBase{
 		type(By.name("address2"), contact.address2);		
 		type(By.name("phone2"), contact.phone2);	
 	}
+	
+	/*****************************************************
+	 * select methods
+	 ****************************************************/
 
 	public void selectGroup(ContactGroupData group) {
 		selectByText(By.name("new_group"), group.selectedgroup);		
@@ -44,14 +45,33 @@ public class ContactHelper extends HelperBase{
 		selectByText(By.name("bmonth"), bdate.selectedbmonth);	        
 	    type(By.name("byear"), bdate.byear);	    
 	    
-	}	
+	}
+	
+	/*****************************************************
+	 * init methods
+	 ****************************************************/
 
 	public void initAddNewContact() {		
 		click(By.linkText("add new"));
 	}
+	
+	public void initContactModificationByIndex(int index) {
+		click(By.xpath("(//img[@alt='Edit'])[" + index + "]"));
+	}	
 
+	/*****************************************************
+	 * submit methods
+	 ****************************************************/
+	
 	public void submitAddNewContact() {		
 	    click(By.name("submit"));
 	}
-
+	
+	public void submitUpdateContact() {	
+		click(By.xpath("//input[@value='Update']"));
+	}
+	
+	public void submitDeleteContact() {		
+	    click(By.xpath("//input[@value='Delete']"));
+	}
 }
