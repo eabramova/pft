@@ -1,9 +1,14 @@
 package com.example.fw;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import com.example.tests.BirthDateData;
 import com.example.tests.ContactData;
 import com.example.tests.ContactGroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase{
 
@@ -56,7 +61,7 @@ public class ContactHelper extends HelperBase{
 	}
 	
 	public void initContactModificationByIndex(int index) {
-		click(By.xpath("(//img[@alt='Edit'])[" + index + "]"));
+		click(By.xpath("(//img[@alt='Edit'])[" + (index) + "]"));
 	}	
 
 	/*****************************************************
@@ -74,4 +79,27 @@ public class ContactHelper extends HelperBase{
 	public void submitDeleteContact() {		
 	    click(By.xpath("//input[@value='Delete']"));
 	}
+	
+	public List<ContactData> getContacts() {
+		List<ContactData> contacts = new ArrayList<ContactData>();		
+        int numOfRows = driver.findElements(By.xpath("//tbody/tr")).size();
+		//System.out.println(numOfRows);		
+		int colNum = 2;        
+        for(int rowNum = 2 ; rowNum < numOfRows; rowNum++) {
+        	WebElement lastNameCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + colNum + "]"));
+        	WebElement firstNameCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 1) + "]"));
+        	WebElement emailCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 2) + "]"));
+        	WebElement homePhoneCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 3) + "]"));
+        	ContactData contact = new ContactData();								
+			contact.lastname = lastNameCol.getText();
+			contact.firstname = firstNameCol.getText();	
+			contact.email = emailCol.getText();	
+			contact.homephone = homePhoneCol.getText();
+			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);			
+			contacts.add(contact);        	
+        }
+        System.out.println(contacts);
+        return contacts;         
+    }	
+	
 }
