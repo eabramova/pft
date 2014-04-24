@@ -2,13 +2,15 @@ package com.example.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.ui.Select;
 
-import com.example.tests.BirthDateData;
+//import com.example.tests.BirthDateData;
 import com.example.tests.ContactData;
-import com.example.tests.ContactGroupData;
+//import com.example.tests.ContactGroupData;
 
 import java.util.ArrayList;
 import java.util.List;
+//import java.util.Random;
 
 public class ContactHelper extends HelperBase{
 
@@ -32,7 +34,12 @@ public class ContactHelper extends HelperBase{
 		type(By.name("mobile"), contact.mobilephone);	  	    
 		type(By.name("work"), contact.workphone);		
 		type(By.name("email"), contact.email);			
-		type(By.name("email2"), contact.email2);		
+		type(By.name("email2"), contact.email2);
+		//selectByText(By.name("bday"), contact.selectedbday);
+		//selectByIndex(By.name("bday"), getIndex("bday"));
+		//selectByIndex(By.name("bmonth"), getIndex("bmonth"));	        
+	    //type(By.name("byear"), contact.byear);
+	    //selectByIndex(By.name("new_group"), getIndex("new_group"));
 		type(By.name("address2"), contact.address2);		
 		type(By.name("phone2"), contact.phone2);	
 	}
@@ -40,7 +47,7 @@ public class ContactHelper extends HelperBase{
 	/*****************************************************
 	 * select methods
 	 ****************************************************/
-
+/*
 	public void selectGroup(ContactGroupData group) {
 		selectByText(By.name("new_group"), group.selectedgroup);		
 	}
@@ -50,10 +57,19 @@ public class ContactHelper extends HelperBase{
 		selectByText(By.name("bmonth"), bdate.selectedbmonth);	        
 	    type(By.name("byear"), bdate.byear);	    
 	    
-	}
+	}	
+	
+	private int getIndex(String selectname) {
+		Select se = new Select(driver.findElement(By.name(selectname)));
+		List<WebElement> l = se.getOptions();		
+		int selectsize = l.size();
+		System.out.println(selectsize);
+		Random rnd = new Random();
+		return rnd.nextInt(selectsize) + 1;		
+	}*/	
 	
 	/*****************************************************
-	 * init methods
+	 * initial methods
 	 ****************************************************/
 
 	public void initAddNewContact() {		
@@ -82,19 +98,25 @@ public class ContactHelper extends HelperBase{
 	
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();		
-        int numOfRows = driver.findElements(By.xpath("//tbody/tr")).size();
+        int numOfRows = findElements(By.xpath("//tbody/tr")).size();
 		//System.out.println(numOfRows);		
 		int colNum = 2;        
         for(int rowNum = 2 ; rowNum < numOfRows; rowNum++) {
-        	WebElement lastNameCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + colNum + "]"));
-        	WebElement firstNameCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 1) + "]"));
-        	WebElement emailCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 2) + "]"));
-        	WebElement homePhoneCol = driver.findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 3) + "]"));
+        	WebElement lastNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + colNum + "]"));
+        	WebElement firstNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 1) + "]"));
+        	WebElement emailCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 2) + "]"));
+        	WebElement homePhoneCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 3) + "]"));
         	ContactData contact = new ContactData();								
 			contact.lastname = lastNameCol.getText();
 			contact.firstname = firstNameCol.getText();	
 			contact.email = emailCol.getText();	
 			contact.homephone = homePhoneCol.getText();
+			
+			if(contact.lastname == null) contact.lastname = "";
+			if(contact.firstname == null) contact.firstname = "";
+			if(contact.email == null) contact.email = "";
+			if(contact.homephone == null) contact.homephone = "";
+			
 			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);			
 			contacts.add(contact);        	
         }

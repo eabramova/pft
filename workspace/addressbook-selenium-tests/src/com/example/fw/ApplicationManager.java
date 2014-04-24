@@ -15,6 +15,7 @@ public class ApplicationManager {
 	private NavigationHelper navigationHelper;
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
+	//private HelperBase contactHelper;
 	
 	public ApplicationManager() {
 
