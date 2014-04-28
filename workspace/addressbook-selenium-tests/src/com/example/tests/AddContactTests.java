@@ -9,7 +9,7 @@ public class AddContactTests extends TestBase {
 	
   @Test(dataProvider = "randomValidContactGenerator")
   public void testContactCreationWithValidData(ContactData contact) throws Exception {
-	app.getNavigationHelper().openMainPage();
+	app.navigateTo().mainPage();
 	
 	//save old state
 	List<ContactData> oldContactsList = app.getContactHelper().getContacts(); 
@@ -32,6 +32,7 @@ public class AddContactTests extends TestBase {
 	
     app.getContactHelper().submitAddNewContact();
     app.getContactHelper().returnToMainPageFromAddEditContactPage();
+    app.getContactHelper().rebuildCash();
     
     //save new state
     List<ContactData> newContactsList = app.getContactHelper().getContacts(); 
@@ -39,8 +40,7 @@ public class AddContactTests extends TestBase {
     //compare states
     checkHomePhoneAndEmail(contact);
     
-    oldContactsList.add(contact);
-    
+    oldContactsList.add(contact);    
     Collections.sort(oldContactsList);
     Collections.sort(newContactsList);
     assertEquals(newContactsList, oldContactsList);    

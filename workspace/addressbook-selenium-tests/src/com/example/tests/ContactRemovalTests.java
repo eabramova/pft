@@ -12,7 +12,7 @@ public class ContactRemovalTests extends TestBase{
 	
 	@Test
 	public void removeContactByIndex() {
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 		//save old state
 		List<ContactData> oldContactsList = app.getContactHelper().getContacts(); 
 					
@@ -23,6 +23,7 @@ public class ContactRemovalTests extends TestBase{
 		app.getContactHelper().initContactModificationByIndex(index + 1);		
 		app.getContactHelper().submitDeleteContact();			   
 	    app.getContactHelper().returnToMainPageFromAddEditContactPage();
+	    app.getContactHelper().rebuildCash();
 	    
 	    //save new state
 	    List<ContactData> newContactsList = app.getContactHelper().getContacts(); 
@@ -35,10 +36,11 @@ public class ContactRemovalTests extends TestBase{
 	    assertEquals(newContactsList, oldContactsList);
 	}
 	
-	/**
+	/*
 	@Test
 	public void removeAllContactsPlusOne() {
-		app.getNavigationHelper().openMainPage();
+		//app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 		//save old state
 		List<ContactData> ContactsList = app.getContactHelper().getContacts(); 
 		
@@ -48,6 +50,6 @@ public class ContactRemovalTests extends TestBase{
 		app.getContactHelper().submitDeleteContact();			   
 	    app.getContactHelper().returnToMainPageFromAddEditContactPage();	     
 		}
-	}
-	*/
+	} */
+	
 }

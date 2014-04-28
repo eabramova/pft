@@ -17,11 +17,65 @@ public class ContactHelper extends HelperBase{
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);		
 	}
-
-	public void returnToMainPageFromAddEditContactPage() {		
-		click(By.linkText("home page"));
+	
+	private List<ContactData> cachedContacts;
+	
+	public List<ContactData> getContacts() {
+		if(cachedContacts == null) {
+			rebuildCash();
+		}
+		return cachedContacts;
 	}
 	
+	
+	public void rebuildCash() {
+		//List<ContactData> 
+		cachedContacts = new ArrayList<ContactData>();		
+        int numOfRows = findElements(By.xpath("//tbody/tr")).size();
+		//System.out.println(numOfRows);		
+		int colNum = 2;        
+        for(int rowNum = 2 ; rowNum < numOfRows; rowNum++) {
+        	WebElement lastNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + colNum + "]"));
+        	WebElement firstNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 1) + "]"));
+        	WebElement emailCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 2) + "]"));
+        	WebElement homePhoneCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 3) + "]"));
+        	ContactData contact = new ContactData();								
+			contact.lastname = lastNameCol.getText();
+			contact.firstname = firstNameCol.getText();	
+			contact.email = emailCol.getText();	
+			contact.homephone = homePhoneCol.getText();
+			
+			if(contact.lastname == null) contact.lastname = "";
+			if(contact.firstname == null) contact.firstname = "";
+			if(contact.email == null) contact.email = "";
+			if(contact.homephone == null) contact.homephone = "";
+			
+			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);			
+			cachedContacts.add(contact);        	
+        }
+        //System.out.println(contacts);
+        //return contacts;         
+    }
+	
+	/*****************************************************
+	 * submit methods
+	 ****************************************************/
+	
+	public void submitAddNewContact() {		
+	    click(By.name("submit"));
+	    cachedContacts = null;	 
+	}
+	
+	public void submitUpdateContact() {	
+		click(By.xpath("//input[@value='Update']"));
+		//cachedContacts = null;			
+	}
+	
+	public void submitDeleteContact() {		
+	    click(By.xpath("//input[@value='Delete']"));
+	    cachedContacts = null;		    
+	}	
+
 	/*****************************************************
 	 * fill methods
 	 ****************************************************/
@@ -79,49 +133,10 @@ public class ContactHelper extends HelperBase{
 	public void initContactModificationByIndex(int index) {
 		click(By.xpath("(//img[@alt='Edit'])[" + (index) + "]"));
 	}	
+	
 
-	/*****************************************************
-	 * submit methods
-	 ****************************************************/
-	
-	public void submitAddNewContact() {		
-	    click(By.name("submit"));
+	public void returnToMainPageFromAddEditContactPage() {		
+		click(By.linkText("home page"));
 	}
-	
-	public void submitUpdateContact() {	
-		click(By.xpath("//input[@value='Update']"));
-	}
-	
-	public void submitDeleteContact() {		
-	    click(By.xpath("//input[@value='Delete']"));
-	}
-	
-	public List<ContactData> getContacts() {
-		List<ContactData> contacts = new ArrayList<ContactData>();		
-        int numOfRows = findElements(By.xpath("//tbody/tr")).size();
-		//System.out.println(numOfRows);		
-		int colNum = 2;        
-        for(int rowNum = 2 ; rowNum < numOfRows; rowNum++) {
-        	WebElement lastNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + colNum + "]"));
-        	WebElement firstNameCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 1) + "]"));
-        	WebElement emailCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 2) + "]"));
-        	WebElement homePhoneCol = findElement(By.xpath("//table/tbody/tr[" + rowNum + "]/td[" + (colNum + 3) + "]"));
-        	ContactData contact = new ContactData();								
-			contact.lastname = lastNameCol.getText();
-			contact.firstname = firstNameCol.getText();	
-			contact.email = emailCol.getText();	
-			contact.homephone = homePhoneCol.getText();
-			
-			if(contact.lastname == null) contact.lastname = "";
-			if(contact.firstname == null) contact.firstname = "";
-			if(contact.email == null) contact.email = "";
-			if(contact.homephone == null) contact.homephone = "";
-			
-			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);			
-			contacts.add(contact);        	
-        }
-        System.out.println(contacts);
-        return contacts;         
-    }	
 	
 }
