@@ -13,8 +13,8 @@ import com.example.fw.ApplicationManager;
 
 public class TestBase {
 	
-	protected static ApplicationManager app;	
-
+	protected static ApplicationManager app;
+	
 	@BeforeTest
 	public void setUp() throws Exception {
 		app = new ApplicationManager();		
@@ -43,27 +43,27 @@ public class TestBase {
 	public Iterator<Object[]> randomValidContactGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
 		for(int i = 0; i < 3; i++) {
-			ContactData contact = new ContactData();			
-			contact.firstname = generateRandomString();
-		    contact.lastname = generateRandomString();
-		    contact.address = generateRandomString();
-		    contact.homephone = generateRandomString();
-		    contact.mobilephone = generateRandomString();
-		    contact.workphone = generateRandomString();
-		    contact.email = generateRandomString();
-		    contact.email2 = generateRandomString();
-		    //contact.selectedbday = "";
-		    //contact.selectedbmonth = "March";
-		    //contact.byear = "1971";
-		    //contact.selectedgroup = "";		    
-		    contact.address2 = generateRandomString();
-		    contact.phone2 = generateRandomString();
+			ContactData contact = new ContactData()
+			.withFirstName(generateRandomString())
+			.withLastName(generateRandomString())
+			.withAddress(generateRandomString())
+			.withHomephone(generateRandomString())
+			.withMobilephone(generateRandomString())
+			.withWorkphone(generateRandomString())
+			.withEmail(generateRandomString())
+			.withEmail2(generateRandomString())
+			//contact.selectedbday = "";
+			//contact.selectedbmonth = "March";
+			//contact.byear = "1971";
+			//contact.selectedgroup = "";	
+			.withAddress2(generateRandomString())
+			.withPhone2(generateRandomString());			
 		    
 			list.add(new Object[]{contact});
 		}		
 		return list.iterator();		
-	}
-	
+	}	
+
 	public String generateRandomString() {
 		Random rnd = new Random();		
 		if(rnd.nextInt(3) == 0) {
@@ -75,13 +75,13 @@ public class TestBase {
 	
 	public void checkHomePhoneAndEmail(ContactData contact) {
 		//ContactData contact = new ContactData();
-		if(contact.homephone.isEmpty()) {
-	    	if(contact.mobilephone.isEmpty())
+		if(contact.getHomephone().isEmpty()) {
+	    	if(contact.getMobilephone().isEmpty())
 	    		contact.homephone = contact.workphone;
 	    	else
 	    		contact.homephone = contact.mobilephone;
 	    }
-	    if(contact.email.isEmpty())
+	    if(contact.getEmail().isEmpty())
 	    	contact.email = contact.email2;
 	    //ContactData contact
 	} 

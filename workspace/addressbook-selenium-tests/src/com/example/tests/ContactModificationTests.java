@@ -1,9 +1,9 @@
 package com.example.tests;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.*;
 
-import java.util.Collections;
-import java.util.List;
+import com.example.utils.SortedListOf;
 import java.util.Random;
 
 import org.testng.annotations.Test;
@@ -12,32 +12,23 @@ public class ContactModificationTests extends TestBase {
 		
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void modifyContactByIndex(ContactData contact) {
-		app.navigateTo().mainPage();
-		
+				
 		//save old state
-		List<ContactData> oldContactsList = app.getContactHelper().getContacts(); 
+		SortedListOf<ContactData> oldContactsList = app.getContactHelper().getContacts(); 
 		
 		Random rnd = new Random();
-	    int index = rnd.nextInt(oldContactsList.size()); //works if oldContactsList.size() > 1
-		
-		//actions
-		app.getContactHelper().initContactModificationByIndex(index + 1);		
-		app.getContactHelper().fillNewContactPage(contact);
-		app.getContactHelper().submitUpdateContact();			   
-	    app.getContactHelper().returnToMainPageFromAddEditContactPage();
-	    app.getContactHelper().rebuildCash();
-	   
+		int index = rnd.nextInt(oldContactsList.size() - 1); //works if oldContactsList.size() > 1
+	    		
+		//actions			
+		app.getContactHelper().modifyContact(index, contact);
+	    	   
 	    //save new state
-	    List<ContactData> newContactsList = app.getContactHelper().getContacts(); 
+	    SortedListOf<ContactData> newContactsList = app.getContactHelper().getContacts(); 
 	    
 	    //compare states
 	    checkHomePhoneAndEmail(contact);
 	    
-	    oldContactsList.remove(index);	    
-	    oldContactsList.add(contact);
-	    Collections.sort(oldContactsList);
-	    Collections.sort(newContactsList);
-	    assertEquals(newContactsList, oldContactsList);
+	    assertThat(newContactsList, equalTo(oldContactsList.without(index).withAdded(contact)));	    
 	}
 	
 }
