@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.example.tests.ContactDataGenerator.loadContactsFromXmlFile;
-import static com.example.tests.ContactDataGenerator.loadContactsFromCsvFile;
+//import static com.example.tests.ContactDataGenerator.loadContactsFromCsvFile;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
 import com.example.utils.SortedListOf;
