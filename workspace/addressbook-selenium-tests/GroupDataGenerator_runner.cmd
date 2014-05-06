@@ -1,0 +1,1 @@
+java -cp bin;C:\pft\libraries\xstream-1.4.7\lib\xstream-1.4.7.jar;C:\pft\libraries\xstream-1.4.7\lib\xstream\xpp3_min-1.1.4c.jar;C:\pft\libraries\selenium-server-standalone-2.39.0.jar com.example.tests.GroupDataGenerator 3 groups.xml xml

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite">
+  <test verbose="2" name="Default test">
+    <classes>
+      <class name="com.example.tests.GroupCreationTests">
+        <methods>
+          <include name="testGroupCreationWithValidData"/>
+        </methods>
+      </class> <!-- com.example.tests.GroupCreationTests -->
+      
+      <class name="com.example.tests.AddContactTests">
+        <methods>
+          <include name="testContactCreationWithValidData"/>
+        </methods>
+      </class> <!-- com.example.tests.AddContactTests -->
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
