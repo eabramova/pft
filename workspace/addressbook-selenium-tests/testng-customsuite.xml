@@ -7,13 +7,7 @@
         <methods>
           <include name="testGroupCreationWithValidData"/>
         </methods>
-      </class> <!-- com.example.tests.GroupCreationTests -->
-      
-      <class name="com.example.tests.AddContactTests">
-        <methods>
-          <include name="testContactCreationWithValidData"/>
-        </methods>
-      </class> <!-- com.example.tests.AddContactTests -->
+      </class> <!-- com.example.tests.GroupCreationTests -->      
     </classes>
   </test> <!-- Default test -->
 </suite> <!-- Default suite -->
