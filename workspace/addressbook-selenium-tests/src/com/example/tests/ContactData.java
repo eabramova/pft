@@ -15,6 +15,7 @@ public class ContactData implements Comparable<ContactData> {
 	//public String selectedgroup;
 	private String address2;
 	private String phone2;
+	private String id;
 
 	public ContactData() {
 
@@ -114,6 +115,10 @@ public class ContactData implements Comparable<ContactData> {
 	}
 
 	//setters
+	public ContactData withId(String id) {		
+		this.id = id;
+		return this;
+	}
 
 	public ContactData withFirstName(String firstname) {		
 		this.firstname = firstname;
@@ -163,9 +168,56 @@ public class ContactData implements Comparable<ContactData> {
 	public ContactData withPhone2(String phone2) {
 		this.phone2 = phone2;		
 		return this;
+	}	
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setHomephone(String homephone) {
+		this.homephone = homephone;
+	}
+
+	public void setMobilephone(String mobilephone) {
+		this.mobilephone = mobilephone;
+	}
+
+	public void setWorkphone(String workphone) {
+		this.workphone = workphone;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	//getters
+	public String getId() {
+		return id;
+	}
 
 	public String getFirstname() {
 		return firstname;

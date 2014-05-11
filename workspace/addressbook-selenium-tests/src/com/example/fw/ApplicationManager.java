@@ -11,7 +11,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class ApplicationManager {
 	
-	public WebDriver driver;
+	private WebDriver driver;
 	public String baseUrl;
 	public boolean acceptNextAlert = true;
 	
@@ -19,23 +19,11 @@ public class ApplicationManager {
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
 	//private HelperBase contactHelper;
-	private Properties properties;
+	public Properties properties;
+	private HibernateHelper hibernateHelper;
 	
 	public ApplicationManager(Properties properties) {
-	    this.properties = properties;
-	    String browser = properties.getProperty("browser");
-	    if("firefox".equalsIgnoreCase(browser)){
-	    	driver = new FirefoxDriver();
-	    } else if("chrome".equalsIgnoreCase(browser)) {
-	    	driver = new ChromeDriver();
-	    } else if("ie".equalsIgnoreCase(browser)) {
-	    	driver = new InternetExplorerDriver();
-	    } else {
-	    	throw new Error("Unsupported new browser: " + browser);
-	    }
-	    baseUrl = properties.getProperty("baseUrl");
-	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	    driver.get(baseUrl);
+	    this.properties = properties;	        
 	}
 	    	
 	public void stop() {
@@ -62,6 +50,32 @@ public class ApplicationManager {
 		}
 		return contactHelper;
 	}
+	
+	public HibernateHelper getHibernateHelper() {
+		if(hibernateHelper == null) {
+			hibernateHelper = new HibernateHelper(this);
+		}
+		return hibernateHelper;
+		
+	}
 
+	public WebDriver getDriver() {
+		if(driver == null) {	
+			String browser = properties.getProperty("browser");	
+			if("firefox".equalsIgnoreCase(browser)){
+		    	driver = new FirefoxDriver();
+		    } else if("chrome".equalsIgnoreCase(browser)) {
+		    	driver = new ChromeDriver();
+		    } else if("ie".equalsIgnoreCase(browser)) {
+		    	driver = new InternetExplorerDriver();
+		    } else {
+		    	throw new Error("Unsupported new browser: " + browser);
+		    }
+		    baseUrl = properties.getProperty("baseUrl");
+		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    driver.get(baseUrl);
+		}
+		return driver;
+	}
 
 }
