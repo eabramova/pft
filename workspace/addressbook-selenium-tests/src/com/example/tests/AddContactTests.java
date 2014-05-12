@@ -27,34 +27,19 @@ public class AddContactTests extends TestBase {
 	//save old state
 	SortedListOf<ContactData> oldContactsList 
 		= new SortedListOf<ContactData>(app.getHibernateHelper().listContacts());	
-	  
+	
+	for(ContactData cd: oldContactsList) {
+		checkEmailPhone(cd);			
+	}
+		  
 	//actions
 	app.getContactHelper().addContact(contact);	
+	checkEmailPhone(contact);
      
-    //save new state
-    SortedListOf<ContactData> newContactsList 
-    	= new SortedListOf<ContactData>(app.getHibernateHelper().listContacts()); 
-    
-    //compare states
-    //checkHomePhoneAndEmail(contact);
+    //save new state     
+	SortedListOf<ContactData> newContactsList = app.getContactHelper().getContacts(); 
+    //compare states    
     
     assertThat(newContactsList, equalTo(oldContactsList.withAdded(contact)));   
   }
 }
-
-/*
-ContactGroupData group = new ContactGroupData();
-group.selectedgroup = "group name 1";
-app.getContactHelper().selectGroup(group);
-
-BirthDateData bdata = new BirthDateData();
-bdata.selectedbday = "20";
-bdata.selectedbmonth = "March";
-bdata.byear = "1981";
-app.getContactHelper().bDateSelect(bdata);
-*/	
-
-/*oldContactsList.add(contact);    
-Collections.sort(oldContactsList);
-Collections.sort(newContactsList);
-assertEquals(newContactsList, oldContactsList);   */ 

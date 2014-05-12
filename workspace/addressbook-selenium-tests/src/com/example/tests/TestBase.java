@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
 import com.example.fw.ApplicationManager;
+import com.example.utils.SortedListOf;
+
 import static com.example.tests.GroupDataGenerator.generateRandomGroups;
 import static com.example.tests.ContactDataGenerator.generateRandomContacts;
 
@@ -89,18 +91,17 @@ public class TestBase {
 			return "test" + rnd.nextInt();
 			}		
 	}
-	
-	public void checkHomePhoneAndEmail(ContactData contact) {
-		//ContactData contact = new ContactData();
-		if(contact.getHomephone().isEmpty()) {
-	    	if(contact.getMobilephone().isEmpty())
-	    		contact.homephone = contact.workphone;
-	    	else
-	    		contact.homephone = contact.mobilephone;
-	    }
-	    if(contact.getEmail().isEmpty())
-	    	contact.email = contact.email2;
-	    //ContactData contact
-	} 
 
+	protected void checkEmailPhone(ContactData cd) {
+		if(cd.email == null || cd.email.isEmpty()){
+			cd.email = cd.email2;
+		}		
+		
+		if(cd.homephone == null || cd.homephone.isEmpty()) {
+			if(cd.mobilephone == null || cd.mobilephone.isEmpty())
+				cd.homephone = cd.workphone;
+			else
+				cd.homephone = cd.mobilephone;
+		}
+	}
 }

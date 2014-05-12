@@ -17,8 +17,8 @@ public class ContactHelper extends WebDriverHelperBase{
 	public SortedListOf<ContactData> getContacts() {
 		if(cachedContacts == null) {
 			rebuildCash();
-		}
-		return cachedContacts;
+		}		
+		return cachedContacts;			
 	}	
 	
 	public void rebuildCash() {
@@ -37,8 +37,8 @@ public class ContactHelper extends WebDriverHelperBase{
         	.withLastName(lastNameCol.getText())
         	.withFirstName(firstNameCol.getText())
         	.withEmail(emailCol.getText())
-        	.withHomephone(homePhoneCol.getText());
-        	
+        	.withHomephone(homePhoneCol.getText());        	
+        		
 			/*contact.lastname = lastNameCol.getText();
 			contact.firstname = firstNameCol.getText();	
 			contact.email = emailCol.getText();	
@@ -49,29 +49,35 @@ public class ContactHelper extends WebDriverHelperBase{
 			if(contact.getEmail() == null) contact.email = "";
 			if(contact.getHomephone() == null) contact.homephone = "";
 			
-			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);			
-			cachedContacts.add(contact);        	
-        }                 
+			//System.out.println(contact.lastname + ", " + contact.firstname + ", " + contact.email + ", " + contact.homephone);					
+			cachedContacts.add(contact);			
+        }      
     }	
 	
 	public ContactHelper addContact(ContactData contact) {
 		initAddNewContact();
     	fillNewContactPage(contact);
     	submitAddNewContact();
-    	returnToMainPageFromAddEditContactPage();
-    	rebuildCash();
+    	returnToMainPageFromAddEditContactPage();    	
+    	rebuildCash();    	
     	return this;		
 	}
 	
 	public ContactHelper modifyContact(int index, ContactData contact) {
 		initContactModificationByIndex(index);
-    	fillNewContactPage(contact);
+		//readContactFromDB(contact);
+		fillNewContactPage(contact);
     	submitUpdateContact();
     	returnToMainPageFromAddEditContactPage(); 
     	rebuildCash();
-    	return this;		
+    	return this;
 	}
 	
+	private ContactHelper readContactFromDB(ContactData contact) {
+		//ContactData dbcontact = new ContactData(manager.getHibernateHelper().getContact());
+		return null;		
+	}
+
 	public ContactHelper deleteContact(int index) {		
 		initContactModificationByIndex(index);
 		submitDeleteContact();
@@ -113,7 +119,6 @@ public class ContactHelper extends WebDriverHelperBase{
 		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
 		return this;
 	}	
-	
 
 	public ContactHelper returnToMainPageFromAddEditContactPage() {		
 		click(By.linkText("home page"));
@@ -138,7 +143,7 @@ public class ContactHelper extends WebDriverHelperBase{
 	    //selectByIndex(By.name("new_group"), getIndex("new_group"));
 		type(By.name("address2"), contact.getAddress2());		
 		type(By.name("phone2"), contact.getPhone2());
-		return this;
+		return this;		
 	}
 	
 	/*****************************************************
@@ -163,6 +168,5 @@ public class ContactHelper extends WebDriverHelperBase{
 		System.out.println(selectsize);
 		Random rnd = new Random();
 		return rnd.nextInt(selectsize) + 1;		
-	}*/		
-	
+	}*/			
 }

@@ -32,8 +32,7 @@ public Iterator<Object[]> groupsFromFile() throws IOException {
     app.getGroupHelper().createGroup(group);    
     
     //save new state
-    SortedListOf<GroupData> newList 
-    = new SortedListOf<GroupData>(app.getHibernateHelper().listGroups());
+    SortedListOf<GroupData> newList = app.getGroupHelper().getGroups();
     
     //compare states
     assertThat(newList, equalTo(oldList.withAdded(group)));

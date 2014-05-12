@@ -35,5 +35,5 @@ public class HibernateHelper extends HelperBase {
 		} finally {
           trans.commit();
 		}
-	}
+	}	
 }
